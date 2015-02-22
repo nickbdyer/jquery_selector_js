@@ -5,6 +5,7 @@ var $ = function (selector) {
   var arrays = [];
   var tags, classes, ids;
 
+  // Put HTML elements into sets based on type of selector
   for (var i = 0; i < selectorArray.length; i++) {
     if (selectorArray[i].charAt(0) === "#") {
       ids = [document.getElementById (selectorArray[i].slice(1))];
@@ -15,12 +16,13 @@ var $ = function (selector) {
     }
   };
 
+  // Choose sets containing HTMl elements
   [tags, classes, ids].forEach(function(array) {
     if (array && array.length > 0) 
       arrays.push(array);
   });
 
-  // Find Set Intersection
+  // Find Sets Intersection
   elements = arrays.shift().filter(function(v) {
     return arrays.every(function(a) {
       return a.indexOf(v) !== -1;
