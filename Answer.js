@@ -20,6 +20,7 @@ var $ = function (selector) {
       arrays.push(array);
   });
 
+  // Find Set Intersection
   elements = arrays.shift().filter(function(v) {
     return arrays.every(function(a) {
       return a.indexOf(v) !== -1;
